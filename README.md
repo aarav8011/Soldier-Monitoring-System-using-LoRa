@@ -12,6 +12,7 @@ This project monitors a soldier's health and location using ESP32 and LoRa commu
 - Emergency alert system
 - Base station monitoring
 
+
 ## Hardware Components
 - ESP32
 - LoRa Ra-02 Module
