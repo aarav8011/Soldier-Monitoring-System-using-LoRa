@@ -1,0 +1,43 @@
+#include <SPI.h>
+#include <LoRa.h>
+
+// LoRa pins for ESP32
+#define SCK 5
+#define MISO 19
+#define MOSI 27
+#define SS 18
+#define RST 14
+#define DIO0 26
+
+#define SOS_BUTTON 25
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(SOS_BUTTON, INPUT_PULLUP);
+
+  SPI.begin(SCK, MISO, MOSI, SS);
+
+  LoRa.setPins(SS, RST, DIO0);
+
+  if (!LoRa.begin(433E6)) {
+    Serial.println("LoRa initialization failed!");
+    while (true);
+  }
+
+  Serial.println("Soldier Monitoring Transmitter Ready");
+}
+
+void loop() {
+  int sos = digitalRead(SOS_BUTTON);
+
+  LoRa.beginPacket();
+  LoRa.print("Soldier Unit");
+  LoRa.print(",SOS:");
+  LoRa.print(sos == LOW ? "PRESSED" : "NORMAL");
+  LoRa.endPacket();
+
+  Serial.println("Data sent");
+
+  delay(2000);
+}
