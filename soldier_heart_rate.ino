@@ -1,9 +1,3 @@
-/*
-  Project: Soldier Monitoring System Using LoRa
-  File: soldier_heart_rate.ino
-  Board: ESP32
-  Sensor: Analog Heart Rate Sensor
-*/
 
 #define HEART_RATE_PIN 34
 
@@ -16,7 +10,6 @@ bool beatDetected = false;
 
 void setup() {
   Serial.begin(115200);
-
   pinMode(HEART_RATE_PIN, INPUT);
 
   Serial.println("Soldier Heart Rate Monitoring");
@@ -26,11 +19,27 @@ void setup() {
 void loop() {
   sensorValue = analogRead(HEART_RATE_PIN);
 
-  // Detect a rising pulse above the threshold
   if (sensorValue > threshold && !beatDetected) {
     unsigned long currentTime = millis();
     unsigned long interval = currentTime - lastBeatTime;
 
-    if (interval >= 300 && interval <= 2000) {
-      bpm = 60000 / interval
+    if (lastBeatTime != 0 &&
+        interval >= 300 &&
+        interval <= 2000) {
+      bpm = 60000 / interval;
 
+      Serial.print("Heart Rate: ");
+      Serial.print(bpm);
+      Serial.println(" BPM");
+    }
+
+    lastBeatTime = currentTime;
+    beatDetected = true;
+  }
+
+  if (sensorValue < threshold) {
+    beatDetected = false;
+  }
+
+  delay(10);
+}
