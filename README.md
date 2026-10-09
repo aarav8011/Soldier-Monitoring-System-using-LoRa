@@ -31,3 +31,4 @@ The sensors collect health data and the GPS module provides location information
 
 ## Project Status
 Prototype development in progress.
+
