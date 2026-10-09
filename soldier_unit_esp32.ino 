@@ -14,6 +14,7 @@
 void setup() {
   Serial.begin(115200);
 
+
   pinMode(SOS_BUTTON, INPUT_PULLUP);
 
   SPI.begin(SCK, MISO, MOSI, SS);
