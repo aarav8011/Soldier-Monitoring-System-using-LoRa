@@ -63,7 +63,7 @@ This is an educational prototype. Communication range and GPS accuracy depend on
 Hardware integration and testing are required to verify the complete system.
 ## System Flowchart
 
-![System Flowchart](system_flowchart.png.pdf)
+![System Flowchart](system_flowchart.png.)
 
 ## Circuit Diagram
 
