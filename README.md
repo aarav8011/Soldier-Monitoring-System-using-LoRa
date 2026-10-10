@@ -61,4 +61,11 @@ This is an educational prototype. Communication range and GPS accuracy depend on
 
 ## 11. Project Status
 Hardware integration and testing are required to verify the complete system.
+## System Flowchart
+
+![System Flowchart](System_Flowchart.png)
+
+## Circuit Diagram
+
+![Circuit Diagram](Circuit_Diagram.png)
 
