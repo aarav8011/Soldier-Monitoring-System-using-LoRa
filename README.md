@@ -72,3 +72,4 @@ Hardware integration and testing are required to verify the complete system.
 ## Block Diagram
 
 ![Block Diagram](block_diagram.png)
+
