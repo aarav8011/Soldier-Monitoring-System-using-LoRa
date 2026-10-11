@@ -70,5 +70,6 @@ Hardware integration and testing are required to verify the complete system.
 ## Circuit required
 ![Circuit Diagram](circuit_diagram.png)
 
-![Block Diagram](images/Soldier_Monitoring_System_Block_Diagram.png)
+## Block Diagram
 
+![Block Diagram](Block_Diagram.png)
